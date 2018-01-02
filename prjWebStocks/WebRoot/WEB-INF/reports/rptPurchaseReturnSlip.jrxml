@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
+<!-- 2015-06-27T17:17:21 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29cd7bea-5650-4503-a228-5e2362bc5a9c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="strCompanyName" class="java.lang.String"/>
+	<parameter name="strUserCode" class="java.lang.String"/>
+	<parameter name="strImagePath" class="java.lang.String"/>
+	<parameter name="strAddr1" class="java.lang.String"/>
+	<parameter name="strAddr2" class="java.lang.String"/>
+	<parameter name="strCity" class="java.lang.String"/>
+	<parameter name="strState" class="java.lang.String"/>
+	<parameter name="strCountry" class="java.lang.String"/>
+	<parameter name="strPin" class="java.lang.String"/>
+	<parameter name="strPhoneNo" class="java.lang.String"/>
+	<parameter name="strFaxNo" class="java.lang.String"/>
+	<parameter name="strEmailAddress" class="java.lang.String"/>
+	<parameter name="strWebSite" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select a.strPRCode,a.dtPRDate,b.strLocName,c.strPName,ifnull(a.strAgainst,'') as strAgainst,ifnull(a.strGRNCode,'') as strGRNCode,a.strNarration,
+a.strMInBy,a.strTimeInOut,a.strVehNo,
+e.strProdCode,e.strProdName,d.strUOM as UOM,d.dblQty,d.dblUnitPrice,d.dblDiscount,
+d.dblTotalPrice,ifnull(d.dblTax,0) as dblTax,ifnull(d.dblTaxAmt,0) as dblTaxAmt,
+ifnull(d.dblTaxPercentage,'') as dblTaxPercentage,ifnull(d.dblTaxableAmt,"") as dblTaxableAmt  ,
+a.dblDisAmt,a.dblDisRate,a.dblExtra,a.dblSubTotal,ifnull(a.dblTaxAmt,0) as dblTaxAmt,ifnull(a.dblTotal,0) as dblTotal
+ from tblpurchasereturnhd a,tbllocationmaster b,tblpartymaster c 
+ , tblpurchasereturndtl d, tblproductmaster e
+where d.strProdCode=e.strProdCode
+and a.strLocCode=b.strLocCode and a.strSuppCode=c.strPCode]]>
+	</queryString>
+	<field name="strPRCode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dtPRDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strLocName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strPName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strAgainst" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strGRNCode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strNarration" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strMInBy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strTimeInOut" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strVehNo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strProdCode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strProdName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UOM" class="java.lang.String"/>
+	<field name="dblQty" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblUnitPrice" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblDiscount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblTotalPrice" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblTax" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblTaxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblTaxPercentage" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblTaxableAmt" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblDisAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblDisRate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblExtra" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblSubTotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dblTotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Immediate"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<image onErrorType="Blank">
+				<reportElement x="3" y="1" width="190" height="93" uuid="267b2698-5fc8-4a17-a689-1119436564d9"/>
+				<imageExpression><![CDATA[$P{strImagePath}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="201" y="65" width="350" height="15" uuid="e4c7045a-fd8e-432b-a663-4c3e608f8096">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Phone: "+$P{strPhoneNo}+"        Fax: "+($P{strFaxNo}==null ?" ":$P{strFaxNo})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="201" y="35" width="350" height="15" uuid="3e3f7ce3-0f78-4400-83f9-a3ef6d20307f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{strAddr1}+", "+$P{strAddr2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="201" y="20" width="350" height="15" uuid="74a04337-5415-4bfe-96e1-797f08b9799d">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCompanyName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="201" y="50" width="350" height="15" uuid="182967d3-0660-496a-897b-39f122af9580">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strCity}+", "+$P{strState}+", "+$P{strCountry}+", "+$P{strPin}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="96" width="552" height="1" forecolor="#969696" uuid="b124efdf-53d8-46af-9295-8022ba217a3e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="201" y="79" width="350" height="15" uuid="8b9260e3-c7bf-410d-938d-a58af4c790b2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Email: "+$P{strEmailAddress}+"        Website: "+$P{strWebSite}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="201" y="0" width="355" height="19" uuid="ae3dbf59-4118-4288-91e7-3b0200ec12f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Purchase Return]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="76" splitType="Stretch">
+			<textField pattern="">
+				<reportElement x="1" y="0" width="200" height="15" uuid="82800f5b-4f4e-44a5-8659-7e86e4e68e41"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Purchase Return Code : "+$F{strPRCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="0" width="140" height="15" uuid="80762d67-3211-4e01-92ea-4ea276a5367e"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date : "+$F{dtPRDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="17" width="206" height="15" uuid="2433111d-e630-4748-a2c0-0d8d276368f2"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Location : "+$F{strLocName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="51" width="349" height="20" uuid="1f631089-70d7-41d4-ae41-9e45129edf5d"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Narration : "+$F{strNarration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="17" width="243" height="15" uuid="8fa730bc-4217-4777-acf9-d489696ddff3"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Supplier : "+$F{strPName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="34" width="119" height="15" uuid="1989fdd0-ad32-497a-80bb-15984ad10c85"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Against : "+$F{strAgainst}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="349" y="34" width="206" height="15" isRemoveLineWhenBlank="true" uuid="87bee27f-2be0-4778-b30e-f1d8a1e99b36"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{strAgainst}.equalsIgnoreCase( "GRN" )? "GRN Code : "+$F{strGRNCode}:"")]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="74" width="554" height="1" uuid="def34d5d-9e3f-476b-ab63-695ef86ff45a"/>
+			</line>
+			<textField>
+				<reportElement x="350" y="51" width="204" height="20" uuid="de518afe-56ab-4c5f-bea9-6a9c59a31391">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Your Bill / DC Reference : "+$F{strMInBy}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25">
+			<staticText>
+				<reportElement x="0" y="2" width="65" height="15" uuid="b23c1611-9321-4a0b-abd0-89e862a6db40">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Product Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="2" width="302" height="15" uuid="932649ce-0281-42ca-9fcd-fd82d1735e8a"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="2" width="35" height="15" uuid="76842b85-02dd-4fa4-b59a-84d7745541b8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="2" width="49" height="15" uuid="267d3a0b-7940-4d27-88cb-b532c82981e5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="2" width="27" height="15" uuid="3b87082e-07b4-4140-8346-6d41af5085f7"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[UOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="2" width="50" height="15" uuid="b54de2fa-91f0-45bb-99ee-26b8eef30ed6"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Total Price]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="554" height="1" uuid="e46df272-715b-41f6-816d-7f94810ce7be"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="2" width="65" height="15" uuid="2063e887-d831-48f2-8f3b-9546ba88420c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="2" width="302" height="15" uuid="36abfe42-d172-469a-b740-5c4b8ba1a8ed"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strProdName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="2" width="35" height="15" uuid="95505ecd-1aad-4bbc-a17a-faf7c1489810"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblQty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="446" y="2" width="49" height="15" uuid="d00a54a3-b993-496f-b662-eae462acf62d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblUnitPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="2" width="27" height="15" uuid="cd195bb1-68f5-4dc6-bac5-7344716901c6"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="2" width="50" height="15" uuid="9259bab6-94dc-47f7-a046-9c2ebba2b41f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblTotalPrice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="420" y="20" width="80" height="15" uuid="9bcafa1e-1361-4442-9914-b2a4dc5655e6"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Discount Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="35" width="80" height="15" uuid="e516e0ae-57ce-4259-8405-40cc7ca777b4"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Extra Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="51" width="80" height="15" uuid="de5dcda5-e115-46fd-a6ae-deb10f72f681"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="500" y="20" width="50" height="15" uuid="7eb4dd82-8c1d-4227-94f2-111868a456cd"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblDisAmt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="36" width="50" height="15" uuid="c65dcc3e-9719-413f-ae43-85f01716b163"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblExtra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="51" width="50" height="15" uuid="c5fde465-145c-487f-a486-eea13f47cf38"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="420" y="5" width="80" height="15" uuid="2726dd72-cf11-4fed-9006-9c74f6e974d8"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="500" y="5" width="50" height="15" uuid="5e726d8f-96d9-429b-a841-83203d9db5ca"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dblSubTotal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="2" width="554" height="1" uuid="5027f5d0-f356-4f7d-ab39-c4ed66a0d01b"/>
+			</line>
+			<line>
+				<reportElement x="0" y="65" width="554" height="1" uuid="4bb41515-d183-4714-8984-c4869946e263"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="4" width="61" height="15" uuid="af4a921e-cf82-4a4a-97b6-a88417d0717f"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created on :]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="68" y="4" width="90" height="15" uuid="c6b51464-cbe8-4b2d-9dec-2af74e72fc4a"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="164" y="4" width="24" height="15" uuid="52b71b4b-f5b9-4821-b219-6d487b3864bf"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AT :]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="188" y="4" width="56" height="15" uuid="b66ee59b-39eb-440b-a23d-6b74350b45b6"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="294" y="4" width="20" height="15" uuid="77553e28-af2f-40fe-b44b-7c95f7a9b7c2"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[By :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="324" y="4" width="100" height="15" uuid="6b1a485f-d2b1-4ad2-bf74-036b1069946f"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{strUserCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="4" width="50" height="15" uuid="12345186-d85b-444a-9475-2337a3e19ef3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="503" y="4" width="50" height="15" uuid="e8155339-1fe8-468c-af67-79022bff0976"/>
+				<textElement textAlignment="Left">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
